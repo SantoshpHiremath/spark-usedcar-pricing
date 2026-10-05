@@ -1,10 +1,9 @@
 """
 Shared SparkSession factory. Runs Spark in local mode (`local[*]`) --
-this environment has no real Spark cluster or AWS Glue job runtime, so
-every test and demo run here executes on a genuine, real, local Spark
-engine (real JVM, real DataFrame execution, real Catalyst query
-planning), just not distributed across a cluster. See README for the
-full disclosure on how this differs from AWS Glue specifically.
+every test and demo run executes on a genuine local Spark engine (real
+JVM, real DataFrame execution, real Catalyst query planning), not
+distributed across a cluster. See README for notes on running this
+code on a managed runtime such as AWS Glue.
 """
 from __future__ import annotations
 

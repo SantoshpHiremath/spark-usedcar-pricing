@@ -1,9 +1,8 @@
 """
 Spark-based data quality and cleaning for the used-vehicle listing feed --
-real PySpark DataFrame transformations (not pandas), since this is the
-part of the JD ("Sicherstellung von Datenintegrität und Datenqualität im
-gesamten Analytics-Prozess über europäische Märkte hinweg") this project
-targets directly.
+real PySpark DataFrame transformations (not pandas), ensuring data
+integrity and data quality across the analytics process for multiple
+European markets.
 """
 from __future__ import annotations
 

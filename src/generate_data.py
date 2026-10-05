@@ -1,8 +1,6 @@
 """
-Generates synthetic multi-market used-vehicle listing data -- not real
-BMW, dealer, or customer data, which I have no access to. Modeled on the
-posting's own description (international retail/wholesale pricing across
-European markets), with realistic pricing-relevant attributes (model,
+Generates synthetic multi-market used-vehicle listing data (international
+retail/wholesale pricing across European markets), with realistic pricing-relevant attributes (model,
 age, mileage, condition, equipment level) and deliberately injected
 data-quality problems, since a used-car pricing analytics pipeline in
 practice has to handle messy source data, not a clean textbook table.

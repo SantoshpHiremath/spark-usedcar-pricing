@@ -1,7 +1,7 @@
 """
 Pricing analytics via real Spark window functions and aggregations --
-the "Data Assets mit SQL, Python und/oder Apache Spark" part of the JD,
-applied specifically to used-vehicle pricing.
+building data assets with SQL, Python and Apache Spark, applied
+specifically to used-vehicle pricing.
 """
 from __future__ import annotations
 
@@ -23,8 +23,7 @@ def price_per_km(df: DataFrame) -> DataFrame:
 def market_model_price_rank(df: DataFrame) -> DataFrame:
     """Ranks each listing's price within its own (market, model) group,
     using a real Spark window function -- exactly the kind of
-    cross-market comparison the posting names ("europäische Märkte
-    hinweg"): is this specific listing priced high or low relative to
+    cross-market comparison across European markets: is this specific listing priced high or low relative to
     comparable vehicles in the SAME market and model, not compared
     across incomparable groups.
     """

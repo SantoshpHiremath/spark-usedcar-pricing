@@ -43,7 +43,7 @@ def test_naive_baseline_predictions_no_nulls(cleaned_df):
 
 def test_feature_pipeline_handles_null_mileage_without_crashing(cleaned_df):
     """Regression test for the real VectorAssembler null-handling bug
-    (see README 'Honest finding' section and build_feature_pipeline()'s
+    (see README 'Notes' section and build_feature_pipeline()'s
     docstring): the cleaned dataset still contains missing_mileage_flag
     rows with a genuinely null mileage_km, and the pipeline must fit and
     transform them without raising, thanks to the Imputer stage.

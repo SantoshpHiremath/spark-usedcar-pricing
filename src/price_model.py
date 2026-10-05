@@ -1,16 +1,13 @@
 """
 A real Spark MLlib price-prediction model trained on the cleaned
-listings -- the "Implementierung von Machine-Learning-Modellen... zur
-Preisoptimierung" line from the JD, done with Spark's own ML library
+listings, built for price optimization with Spark's own ML library
 (pyspark.ml), not scikit-learn, since this project's whole point is
 genuine Spark experience end to end (data prep AND modeling in Spark),
 not just Spark for cleaning with modeling bolted on separately.
 
-Evaluated the same honest way as every other ML project in this
-portfolio: a time-ordered-equivalent (here, a random but fixed-seed)
-train/test split, and comparison against a naive baseline (predict the
-market+model group's mean price) -- so a real, disclosed comparison
-exists, not just a bare R^2 with no reference point.
+Evaluated with a time-ordered-equivalent (here, a random but fixed-seed)
+train/test split, and compared against a naive baseline (predict the
+market+model group's mean price) -- so a clear comparison exists, not just a bare R^2 with no reference point.
 """
 from __future__ import annotations
 
@@ -26,7 +23,7 @@ FEATURE_COLS_CATEGORICAL = ["market", "model", "equipment_level", "channel"]
 
 
 def build_feature_pipeline() -> Pipeline:
-    """HONEST BUG NOTE (see README): the first version of this pipeline
+    """Design note (see README): the first version of this pipeline
     fed mileage_km straight into VectorAssembler, which crashed with
     'Encountered null while assembling a row' on the deliberately
     injected missing-mileage rows -- VectorAssembler's default
@@ -70,8 +67,8 @@ def train_test_split(df: DataFrame, test_fraction: float = 0.2, seed: int = 42):
 def naive_baseline_predictions(train_df: DataFrame, test_df: DataFrame) -> DataFrame:
     """Naive baseline: predict the (market, model) group's mean price
     from the training set. A real model should beat this -- if it
-    doesn't, that's the honest, reportable finding, not something to
-    hide (see README for whether that happened here).
+    doesn't, that is a reportable finding (see README for the comparison
+    results).
     """
     group_means = (
         train_df.groupBy("market", "model")
